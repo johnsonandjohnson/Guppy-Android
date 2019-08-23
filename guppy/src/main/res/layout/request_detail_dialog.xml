@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/request_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textIsSelectable="true"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:text="POST LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG " />
+
+        <TextView
+            android:id="@+id/request_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textIsSelectable="true"
+            android:textSize="20sp"
+            tools:text="https://some_url/ LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG" />
+
+        <TextView
+            android:id="@+id/request_headers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textIsSelectable="true"
+            android:textSize="20sp"
+            tools:text="Header: " />
+
+        <TextView
+            android:id="@+id/request_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textIsSelectable="true"
+            android:textSize="20sp"
+            tools:text="https://some_url/ LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG" />
+
+        <TextView
+            android:id="@+id/response_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textIsSelectable="true"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:text="Response Result:" />
+
+        <TextView
+            android:id="@+id/response_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textIsSelectable="true"
+            android:textSize="20sp"
+            tools:text="Response Body: " />
+
+    </LinearLayout>
+
+</ScrollView>

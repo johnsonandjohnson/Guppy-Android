@@ -7,6 +7,7 @@ Version 1.0.0
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Build Status](https://travis-ci.org/johnsonandjohnson/Guppy-Android.svg?branch=master)](https://travis-ci.org/johnsonandjohnson/Guppy-Android)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ed6f4165c12043118e939aeb201ae120)](https://www.codacy.com/app/CCorrado/Guppy-Android?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=johnsonandjohnson/Guppy-Android&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/ed6f4165c12043118e939aeb201ae120)](https://www.codacy.com/manual/CCorrado/Guppy-Android?utm_source=github.com&utm_medium=referral&utm_content=johnsonandjohnson/Guppy-Android&utm_campaign=Badge_Coverage)
 
 ## Guppy Architecture 
 ### OkHTTP HttpLoggingInterceptor

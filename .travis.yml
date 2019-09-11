@@ -18,7 +18,9 @@ cache:
 
 before_install:
   - yes | sdkmanager "platforms;android-28"
-  - wget -O ~/coverage/codacy-coverage-reporter-assembly-latest.jar https://github.com/codacy/codacy-coverage-reporter/releases/download/4.0.5/codacy-coverage-reporter-4.0.5-assembly.jar
+  - LATEST_VERSION="$(curl -Ls https://api.bintray.com/packages/codacy/Binaries/codacy-coverage-reporter/versions/_latest | jq -r .name)"
+  - curl -Ls -o $HOME/coverage/codacy-coverage-reporter "https://dl.bintray.com/codacy/Binaries/${LATEST_VERSION}/codacy-coverage-reporter-linux"
+  - chmod +x $HOME/coverage/codacy-coverage-reporter
 
 before_script:
   - chmod +x gradlew
@@ -28,4 +30,4 @@ jobs:
     - stage: 'build'
       name: 'Build'
       script: "./gradlew clean lint assembleDebug jacocoTestReport -PdisablePreDex"
-      after_script: "java -jar ~/codacy-coverage-reporter-assembly-latest.jar report -l Kotlin -r ./guppy/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
+      after_script: "java -jar $HOME/coverage/codacy-coverage-reporter report -l Kotlin -r ./guppy/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"

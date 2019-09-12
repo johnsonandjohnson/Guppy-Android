@@ -5,11 +5,11 @@ buildscript {
     repositories {
         google()
         jcenter()
-
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -17,12 +17,14 @@ buildscript {
 
 plugins {
     id 'com.gladed.androidgitversion' version '0.4.9'
+    id 'org.jetbrains.dokka' version '0.9.18'
 }
 
 allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
     }
     ext {
         targetSdk = 28

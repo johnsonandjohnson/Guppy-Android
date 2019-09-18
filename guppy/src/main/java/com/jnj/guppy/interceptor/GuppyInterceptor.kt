@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.text.Charsets.UTF_8
 
 /**
- * Due to the nature of logging, this class is a replica of OkHttp's [HttpLoggingInterceptor]
+ * Due to the nature of logging, this class is a replica of OkHttp's [okhttp3.logging.HttpLoggingInterceptor]
  * https://github.com/square/okhttp/blob/master/okhttp-logging-interceptor/src/main/java/okhttp3/logging/HttpLoggingInterceptor.kt
  *
  * An OkHttp interceptor which logs request and response information. Can be applied as an

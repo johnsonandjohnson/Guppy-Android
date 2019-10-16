@@ -3,4 +3,5 @@
     <string name="get_all">Get All Posts</string>
     <string name="get_one">Get One Post</string>
     <string name="create_random_post">Create Random Post</string>
+    <string name="shake_device">Shake device to open Guppy or tap here</string>
 </resources>

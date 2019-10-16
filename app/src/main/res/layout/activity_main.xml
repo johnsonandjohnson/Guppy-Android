@@ -8,38 +8,45 @@
 
     <Button
         android:id="@+id/button_get_all"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/colorAccent"
-        android:textColor="@android:color/white"
+        style="@style/menu_button"
         android:text="@string/get_all"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/button_get_one" />
+         />
 
     <Button
         android:id="@+id/button_get_one"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:textColor="@android:color/white"
+        style="@style/menu_button"
         android:text="@string/get_one"
-        android:background="@color/colorAccent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_get_all"
-        app:layout_constraintBottom_toTopOf="@id/button_create" />
+        />
 
     <Button
         android:id="@+id/button_create"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+        style="@style/menu_button"
         android:text="@string/create_random_post"
-        android:background="@color/colorAccent"
-        android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_get_one"
-        app:layout_constraintBottom_toBottomOf="parent" />
+         />
+
+    <TextView
+        android:id="@+id/tv_open_guppy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginTop="@dimen/menu_button_margin"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="@string/shake_device"
+        android:textColor="@color/colorAccent"
+        android:textSize="17sp"
+        app:layout_constraintTop_toBottomOf="@id/button_create" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

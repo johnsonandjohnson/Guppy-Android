@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -48,11 +49,12 @@ class GuppyRecyclerAdapter(private val activity: AppCompatActivity, var data: Li
         notifyDataSetChanged()
     }
 
-    private fun getTextColor(statusCode: Int?): Int {
+    @VisibleForTesting
+    fun getTextColor(statusCode: Int?): Int {
          return if (statusCode != null && HttpStatus.isSuccessful(statusCode)) {
-            R.color.green_700
+            R.color.successful
         } else {
-            R.color.red_700
+            R.color.unsuccessful
         }
     }
 

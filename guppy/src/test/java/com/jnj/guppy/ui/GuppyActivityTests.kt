@@ -12,15 +12,14 @@
  * limitations under the License.
  **/
 
-package com.jnj.guppy
+package com.jnj.guppy.ui
 
 import android.hardware.SensorEvent
+import com.jnj.guppy.GuppyActivity
+import com.jnj.guppy.ShakeDetector
 import com.jnj.guppy.database.DatabaseHelper
-import com.jnj.guppy.interceptor.HttpStatus
 import com.jnj.guppy.models.GuppyData
 import com.jnj.guppy.testclasses.TestActivity
-import com.jnj.guppy.ui.GuppyDialogFragment
-import com.jnj.guppy.ui.GuppyRecyclerAdapter
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test

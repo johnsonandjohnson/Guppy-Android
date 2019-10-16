@@ -87,7 +87,7 @@ Unfortunately there is no shortcut for "Shake Gesture". In the Android Emulator,
 * Select the "Move" radio button
 * Rapidly move the `X` or `Y` sliders back and forth.
 
-You could also just use any physical device and shake it :)
+You could also tap on shortcut on main menu or just use any physical device and shake it :)
 
 ![Requests](https://github.com/johnsonandjohnson/Guppy-Android/raw/master/screenshots/request_list.png)
 

@@ -40,5 +40,6 @@ data class GuppyData(
         val requestContentLength: String?, val requestHeaders: String,
         val requestBody: String?, val responseContentType: String?,
         val responseContentLength: String?, val responseResult: String?,
-        val responseHeaders: String, val responseBody: String?
+        val responseHeaders: String, val responseBody: String?, var statusMessage : String?, var statusCode : Int?,
+        val timestamp : Long
 )

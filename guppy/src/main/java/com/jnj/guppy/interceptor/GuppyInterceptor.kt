@@ -244,6 +244,7 @@ constructor(
         val response: Response
         try {
             response = chain.proceed(request)
+            logger.logStatus(response.code)
         } catch (e: Exception) {
             logger.logResponseResult("<-- HTTP FAILED: $e")
             throw e

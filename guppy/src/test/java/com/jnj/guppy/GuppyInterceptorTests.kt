@@ -17,6 +17,7 @@ package com.jnj.guppy
 import com.google.gson.GsonBuilder
 import com.jnj.guppy.database.DatabaseHelper
 import com.jnj.guppy.interceptor.GuppyInterceptor
+import com.jnj.guppy.interceptor.HttpStatus
 import com.jnj.guppy.interceptor.Logger
 import junit.framework.TestCase
 import okhttp3.HttpUrl
@@ -34,6 +35,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
+import kotlin.math.log
 
 
 /**
@@ -195,6 +197,9 @@ class GuppyInterceptorTests : TestCase() {
         assertEquals("<-- END HTTP (0-byte body)", logger.interceptedData.responseBody)
         assertNull(logger.interceptedData.responseContentLength)
         assertNull(logger.interceptedData.responseContentType)
+        assertNotNull(logger.interceptedData.timestamp)
+        assertEquals(200, logger.interceptedData.statusCode)
+        assertEquals("200 OK", logger.interceptedData.statusMessage)
         assertEquals(
                 "<-- 200 OK http://$host/", logger.interceptedData.responseResult
                 ?.subSequence(
@@ -295,6 +300,9 @@ class GuppyInterceptorTests : TestCase() {
                         logger.interceptedData.responseResult?.indexOf("(")!! - 1
                 )
         )
+        assertNotNull(logger.interceptedData.timestamp)
+        assertEquals(200, logger.interceptedData.statusCode)
+        assertEquals("200 OK", logger.interceptedData.statusMessage)
     }
 
     private data class SampleData(val message: String, val flag: Boolean)

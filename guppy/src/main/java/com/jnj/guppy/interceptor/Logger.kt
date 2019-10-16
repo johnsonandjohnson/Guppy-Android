@@ -62,6 +62,13 @@ class Logger {
         interceptedData.responseBody = message
     }
 
+    fun logStatus(code: Int) {
+        interceptedData.apply {
+            statusCode = code
+            statusMessage = "$code ${HttpStatus.getDescription(code)}"
+        }
+    }
+
     class InterceptedData {
         var requestType: String? = null
         var host: String? = null
@@ -74,5 +81,8 @@ class Logger {
         var responseContentLength: String? = null
         var responseHeaders: List<String> = ArrayList()
         var responseBody: String? = null
+        var statusCode: Int? = null
+        var statusMessage: String? = null
+        val timestamp = System.currentTimeMillis()
     }
 }

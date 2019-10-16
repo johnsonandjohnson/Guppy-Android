@@ -16,6 +16,7 @@ package com.jnj.guppy
 
 import android.hardware.SensorEvent
 import com.jnj.guppy.database.DatabaseHelper
+import com.jnj.guppy.interceptor.HttpStatus
 import com.jnj.guppy.models.GuppyData
 import com.jnj.guppy.testclasses.TestActivity
 import com.jnj.guppy.ui.GuppyDialogFragment
@@ -110,7 +111,7 @@ class GuppyActivityTests {
                 "requestHeaders", "requestBody",
                 "responseContentType", "responseContentLength",
                 "responseResult", "responseHeaders",
-                "responseBody"
+                "responseBody", "statusMessage", 200, 1L
         )
         assertNotNull(data)
         assertEquals("host", data.host)
@@ -124,6 +125,9 @@ class GuppyActivityTests {
         assertEquals("responseResult", data.responseResult)
         assertEquals("responseHeaders", data.responseHeaders)
         assertEquals("responseBody", data.responseBody)
+        assertEquals("statusMessage", data.statusMessage)
+        assertEquals(200, data.statusCode)
+        assertEquals(1L, data.timestamp)
     }
 
     @Test

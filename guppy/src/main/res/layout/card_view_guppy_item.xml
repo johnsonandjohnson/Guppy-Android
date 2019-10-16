@@ -1,37 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    app:cardElevation="4dp">
+    android:padding="10dp"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/request_type"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="POST LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG " />
 
-        <TextView
-            android:id="@+id/request_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            tools:text="POST LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG " />
+    <TextView
+        android:id="@+id/request_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:layout_marginTop="5dp"
+        android:maxLines="3"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/request_type"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="200 OK" />
 
-        <TextView
-            android:id="@+id/request_host_url"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="3"
-            android:textSize="20sp"
-            tools:text="https://some_url/ LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/request_timestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:layout_marginTop="5dp"
+        android:maxLines="3"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/request_type"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="09:38 am" />
 
-</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

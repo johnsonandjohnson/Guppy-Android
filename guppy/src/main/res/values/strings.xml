@@ -1,10 +1,14 @@
 <resources>
     <string name="guppy_name">Guppy</string>
-    <string name="overview">Overview</string>
     <string name="guppy_version_string">Guppy Version %1$s</string>
+    <string name="request_type">Request Type:</string>
+    <string name="url">URL:</string>
     <string name="request_content_type">Request Content Type:</string>
-    <string name="request_header">Request Headers</string>
-    <string name="request_body">Request Body</string>
-    <string name="response_headers">Response Headers</string>
-    <string name="response_body">Response Body</string>
+    <string name="request_header">Request Header:</string>
+    <string name="request_body">Request Body:</string>
+    <string name="response_content_type">Response Content Type:</string>
+    <string name="response_content_length">Response Content Length:</string>
+    <string name="response_result">Response Result:</string>
+    <string name="response_headers">Response Headers:</string>
+    <string name="response_body">Response Body:</string>
 </resources>

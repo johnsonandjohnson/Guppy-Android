@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fillViewport="true">
@@ -8,58 +9,70 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:divider="@drawable/divider"
         android:orientation="vertical"
-        android:showDividers="middle">
-
-        <TextView
-            android:id="@+id/overview"
-            style="@style/textLabel"
-            android:text="@string/overview" />
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/request_type"
-            style="@style/textValue" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textIsSelectable="true"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:text="POST LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG " />
 
         <TextView
-            android:id="@+id/request_status"
-            style="@style/textValue" />
-
-        <TextView
-            android:id="@+id/request_headers_label"
-            style="@style/textLabel"
-            android:text="@string/request_header" />
+            android:id="@+id/request_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textIsSelectable="true"
+            android:textSize="20sp"
+            tools:text="https://some_url/ LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG" />
 
         <TextView
             android:id="@+id/request_headers"
-            style="@style/textValue" />
-
-        <TextView
-            android:id="@+id/request_body_label"
-            style="@style/textLabel"
-            android:text="@string/request_body" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textIsSelectable="true"
+            android:textSize="20sp"
+            tools:text="Header: " />
 
         <TextView
             android:id="@+id/request_body"
-            style="@style/textValue" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textIsSelectable="true"
+            android:textSize="20sp"
+            tools:text="https://some_url/ LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG" />
 
         <TextView
-            android:id="@+id/response_headers_label"
-            style="@style/textLabel"
-            android:text="@string/response_headers" />
-
-        <TextView
-            android:id="@+id/response_headers"
-            style="@style/textValue" />
-
-        <TextView
-            android:id="@+id/response_body_label"
-            style="@style/textLabel"
-            android:text="@string/response_body" />
+            android:id="@+id/response_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textIsSelectable="true"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:text="Response Result:" />
 
         <TextView
             android:id="@+id/response_body"
-            style="@style/textValue" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textIsSelectable="true"
+            android:textSize="20sp"
+            tools:text="Response Body: " />
 
     </LinearLayout>
 

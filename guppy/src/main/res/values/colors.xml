@@ -5,4 +5,6 @@
 
     <color name="green_700">#388e3c</color>
     <color name="red_700">#d32f2f</color>
+    <color name="white">#fff</color>
+    <color name="dark_blue">#00549A</color>
 </resources>

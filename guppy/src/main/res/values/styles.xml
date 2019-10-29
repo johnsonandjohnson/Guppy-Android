@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="textValue">
+        <item name="android:padding">8dp</item>
+        <item name="android:textIsSelectable">true</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="textLabel">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">8dp</item>>
+        <item name="android:background">@color/dark_blue</item>
+        <item name="android:textIsSelectable">true</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>

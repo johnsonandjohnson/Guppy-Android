@@ -41,13 +41,11 @@ class RequestDetailDialogFragment : DialogFragment() {
             dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
             guppyData?.let { data ->
-                dialog.findViewById<TextView>(R.id.request_url).text = data.host
-                dialog.findViewById<TextView>(R.id.request_body).text = data.requestBody
-
-                dialog.findViewById<TextView>(R.id.request_headers).text = data.requestHeaders
-
                 dialog.findViewById<TextView>(R.id.request_type).text = data.requestType
-                dialog.findViewById<TextView>(R.id.response_result).text = data.responseResult
+                dialog.findViewById<TextView>(R.id.request_status).text = data.statusMessage
+                dialog.findViewById<TextView>(R.id.request_headers).text = data.requestHeaders
+                dialog.findViewById<TextView>(R.id.request_body).text = data.requestBody
+                dialog.findViewById<TextView>(R.id.response_headers).text = data.responseHeaders
                 dialog.findViewById<TextView>(R.id.response_body).text = formatJson(data.responseBody)
             }
             onViewCreated(view, savedInstanceState)

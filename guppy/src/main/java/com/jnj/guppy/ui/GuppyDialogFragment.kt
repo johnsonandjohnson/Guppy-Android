@@ -1,11 +1,13 @@
 package com.jnj.guppy.ui
 
 import android.app.Dialog
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jnj.guppy.BuildConfig
@@ -53,8 +55,14 @@ class GuppyDialogFragment : DialogFragment() {
 
     private fun configureRecyclerView(guppyRv: RecyclerView) {
         context?.let {
+            val divider = DividerItemDecoration(it, DividerItemDecoration.VERTICAL).apply {
+                setDrawable(it.getDrawable(R.drawable.divider) as Drawable)
+            }
+
             guppyRv.layoutManager = LinearLayoutManager(activity)
             guppyRv.adapter = this.adapter
+            guppyRv.addItemDecoration(divider)
+            guppyRv.setHasFixedSize(true)
         }
     }
 }

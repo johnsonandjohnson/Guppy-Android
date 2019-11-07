@@ -46,7 +46,10 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(
                         "${NetworkRequestEntry.RESPONSE_CONTENT_TYPE} TEXT," +
                         "${NetworkRequestEntry.RESPONSE_CONTENT_LENGTH} TEXT," +
                         "${NetworkRequestEntry.RESPONSE_HEADERS} TEXT," +
-                        "${NetworkRequestEntry.RESPONSE_BODY} TEXT)"
+                        "${NetworkRequestEntry.RESPONSE_BODY} TEXT," +
+                        "${NetworkRequestEntry.STATUS_MSG} TEXT," +
+                        "${NetworkRequestEntry.STATUS_CODE} UNSIGNED SMALLINT," +
+                        "${NetworkRequestEntry.TIMESTAMP} LONG)"
 
         private const val SQL_DROP_TABLE = "DROP TABLE IF EXISTS ${NetworkRequestEntry.TABLE_NAME}"
 
@@ -96,6 +99,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(
                 put(NetworkRequestEntry.RESPONSE_CONTENT_LENGTH, logger.responseContentLength)
                 put(NetworkRequestEntry.RESPONSE_BODY, logger.responseBody)
                 put(NetworkRequestEntry.RESPONSE_HEADERS, responseHeaders)
+                put(NetworkRequestEntry.STATUS_MSG, logger.statusMessage)
+                put(NetworkRequestEntry.STATUS_CODE, logger.statusCode)
+                put(NetworkRequestEntry.TIMESTAMP, logger.timestamp)
             }
 
             db.insert(NetworkRequestEntry.TABLE_NAME, null, values)
@@ -126,7 +132,10 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(
                                     getString(getColumnIndex(NetworkRequestEntry.RESPONSE_CONTENT_LENGTH)),
                                     getString(getColumnIndex(NetworkRequestEntry.RESPONSE_RESULT)),
                                     getString(getColumnIndex(NetworkRequestEntry.RESPONSE_HEADERS)),
-                                    getString(getColumnIndex(NetworkRequestEntry.RESPONSE_BODY))
+                                    getString(getColumnIndex(NetworkRequestEntry.RESPONSE_BODY)),
+                                    getString(getColumnIndex(NetworkRequestEntry.STATUS_MSG)),
+                                    getInt(getColumnIndex(NetworkRequestEntry.STATUS_CODE)),
+                                    getLong(getColumnIndex(NetworkRequestEntry.TIMESTAMP))
                             )
                     )
                 }

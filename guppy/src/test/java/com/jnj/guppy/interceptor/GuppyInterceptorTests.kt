@@ -12,12 +12,10 @@
  * limitations under the License.
  **/
 
-package com.jnj.guppy
+package com.jnj.guppy.interceptor
 
 import com.google.gson.GsonBuilder
 import com.jnj.guppy.database.DatabaseHelper
-import com.jnj.guppy.interceptor.GuppyInterceptor
-import com.jnj.guppy.interceptor.Logger
 import junit.framework.TestCase
 import okhttp3.HttpUrl
 import okhttp3.MediaType.Companion.toMediaType
@@ -34,7 +32,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
-
 
 /**
  * This test strategy is pulled from the OkHTTP tests for HttpLoggingInterceptor
@@ -195,6 +192,9 @@ class GuppyInterceptorTests : TestCase() {
         assertEquals("<-- END HTTP (0-byte body)", logger.interceptedData.responseBody)
         assertNull(logger.interceptedData.responseContentLength)
         assertNull(logger.interceptedData.responseContentType)
+        assertNotNull(logger.interceptedData.timestamp)
+        assertEquals(200, logger.interceptedData.statusCode)
+        assertEquals("200 OK", logger.interceptedData.statusMessage)
         assertEquals(
                 "<-- 200 OK http://$host/", logger.interceptedData.responseResult
                 ?.subSequence(
@@ -257,7 +257,12 @@ class GuppyInterceptorTests : TestCase() {
     @Test
     fun testPostJsonBody() {
         server.enqueue(MockResponse())
-        val json = GsonBuilder().create().toJson(SampleData("This is a test!", true))
+        val json = GsonBuilder().create().toJson(
+            SampleData(
+                "This is a test!",
+                true
+            )
+        )
         val request = request().post(json.toRequestBody(JSON)).build()
         val response = client.newCall(request().post(request.body!!).build()).execute()
         response.body?.close()
@@ -295,6 +300,9 @@ class GuppyInterceptorTests : TestCase() {
                         logger.interceptedData.responseResult?.indexOf("(")!! - 1
                 )
         )
+        assertNotNull(logger.interceptedData.timestamp)
+        assertEquals(200, logger.interceptedData.statusCode)
+        assertEquals("200 OK", logger.interceptedData.statusMessage)
     }
 
     private data class SampleData(val message: String, val flag: Boolean)

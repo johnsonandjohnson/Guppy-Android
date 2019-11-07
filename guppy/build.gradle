@@ -15,7 +15,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdk
         versionCode 1
         versionName version
-        buildConfigField "int", "databaseVersion", "1"
+        buildConfigField "int", "databaseVersion", "2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -55,12 +55,10 @@ dependencies {
     androidTestImplementation "androidx.test:runner:$testrunner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
 
-
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "androidx.cardview:cardview:$androidx_widgets"
     implementation "androidx.recyclerview:recyclerview:$androidx_widgets"
     implementation "androidx.appcompat:appcompat:$androidx_appcompat"
+    implementation "androidx.constraintlayout:constraintlayout:$androidx_constraint"
 
     //OkHTTP
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"

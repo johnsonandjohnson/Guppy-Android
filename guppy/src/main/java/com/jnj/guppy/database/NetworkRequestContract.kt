@@ -30,5 +30,8 @@ object NetworkRequestContract {
         const val RESPONSE_CONTENT_LENGTH = "response_content_length"
         const val RESPONSE_HEADERS = "response_headers"
         const val RESPONSE_BODY = "response_body"
+        const val TIMESTAMP = "timestamp"
+        const val STATUS_MSG = "status_message"
+        const val STATUS_CODE = "status_code"
     }
 }

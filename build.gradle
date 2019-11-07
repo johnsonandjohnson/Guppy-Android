@@ -37,6 +37,7 @@ allprojects {
         okhttp_version = "4.0.1"
         joda_version = "2.9.9"
         retrofit_version = "2.6.0"
+        androidx_constraint = "1.1.3"
     }
 }
 

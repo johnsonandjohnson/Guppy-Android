@@ -50,6 +50,10 @@ class MainActivity : GuppyActivity() {
         button_create.setOnClickListener {
             createRandomPost()
         }
+
+        tv_open_guppy.setOnClickListener {
+            shakeListener?.onShake(0)
+        }
     }
 
     override fun onDestroy() {

@@ -46,8 +46,9 @@ abstract class GuppyActivity : AppCompatActivity(), ShakeAction {
     override fun setSensors() {
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as? SensorManager?
         accelerometer = sensorManager?.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-        shakeDetector = ShakeDetector()
-        shakeDetector?.setOnShakeListener(shakeListener)
+        shakeDetector = ShakeDetector().apply {
+            setOnShakeListener(shakeListener)
+        }
     }
 
     override fun onShakeReceived(dialogFragment: GuppyDialogFragment?) {

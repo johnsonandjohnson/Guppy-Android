@@ -35,3 +35,4 @@ captures/
 
 # DS Store
 .DS_Store
+/guppy/jacoco.exec

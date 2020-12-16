@@ -1,21 +1,25 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply from: './jacoco.gradle'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'org.jetbrains.dokka'
 
 group = 'com.github.johnsonandjohnson'
-version = '1.0.0'
+version = '1.0.1'
 
 android {
     compileSdkVersion rootProject.ext.targetSdk
+    buildFeatures {
+        viewBinding true
+    }
     defaultConfig {
         minSdkVersion rootProject.ext.minSdk
         targetSdkVersion rootProject.ext.targetSdk
-        versionCode 1
+        versionCode 2
         versionName version
         buildConfigField "int", "databaseVersion", "2"
+        buildConfigField 'int', 'VERSION_CODE', "${defaultConfig.versionCode}"
+        buildConfigField 'String', 'VERSION_NAME', "\"${defaultConfig.versionName}\""
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -47,10 +51,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.mockito:mockito-inline:2.23.4'
+    testImplementation 'junit:junit:4.13'
+    testImplementation 'org.mockito:mockito-inline:3.6.28'
     testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_version"
     testImplementation "com.squareup.okhttp3:okhttp-tls:$okhttp_version"
+    debugImplementation 'androidx.fragment:fragment-testing:1.2.5'
 
     androidTestImplementation "androidx.test:runner:$testrunner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"

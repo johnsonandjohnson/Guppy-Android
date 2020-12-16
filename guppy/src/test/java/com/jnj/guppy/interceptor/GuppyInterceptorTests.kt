@@ -126,14 +126,14 @@ class GuppyInterceptorTests : TestCase() {
         response.body?.close()
 
         assertEquals(
-                listOf(
-                        "Content-Type: text/plain; charset=utf-8",
-                        "Content-Length: 3",
-                        "Host: $host",
-                        "Connection: Keep-Alive",
-                        "Accept-Encoding: gzip",
-                        "User-Agent: okhttp/4.0.1"
-                ), logger.interceptedData.requestHeaders
+            listOf(
+                "Content-Type: text/plain; charset=utf-8",
+                "Content-Length: 3",
+                "Host: $host",
+                "Connection: Keep-Alive",
+                "Accept-Encoding: gzip",
+                "User-Agent: okhttp/4.9.0"
+            ), logger.interceptedData.requestHeaders
         )
 
         assertEquals(
@@ -176,7 +176,7 @@ class GuppyInterceptorTests : TestCase() {
                         "Host: $host",
                         "Connection: Keep-Alive",
                         "Accept-Encoding: gzip",
-                        "User-Agent: okhttp/4.0.1"
+                    "User-Agent: okhttp/4.9.0"
                 ), logger.interceptedData.requestHeaders
         )
 
@@ -225,7 +225,7 @@ class GuppyInterceptorTests : TestCase() {
                         "Host: $host",
                         "Connection: Keep-Alive",
                         "Accept-Encoding: gzip",
-                        "User-Agent: okhttp/4.0.1"
+                    "User-Agent: okhttp/4.9.0"
                 ), logger.interceptedData.requestHeaders
         )
 
@@ -274,7 +274,7 @@ class GuppyInterceptorTests : TestCase() {
                         "Host: $host",
                         "Connection: Keep-Alive",
                         "Accept-Encoding: gzip",
-                        "User-Agent: okhttp/4.0.1"
+                    "User-Agent: okhttp/4.9.0"
                 ), logger.interceptedData.requestHeaders
         )
 

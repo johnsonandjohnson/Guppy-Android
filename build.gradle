@@ -1,15 +1,19 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.3.41'
+    ext.kotlin_version = '1.4.21'
     repositories {
         google()
         jcenter()
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.android.tools.build:gradle:4.1.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath 'com.hiya:jacoco-android:0.2'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -27,17 +31,17 @@ allprojects {
         maven { url "https://jitpack.io" }
     }
     ext {
-        targetSdk = 28
+        targetSdk = 30
         minSdk = 21
-        androidx_appcompat = "1.0.2"
-        androidx_widgets = "1.0.0"
-        espresso_version = "3.1.1"
-        testrunner_version = "1.1.1"
-        gson_version = "2.8.5"
-        okhttp_version = "4.0.1"
+        androidx_appcompat = "1.2.0"
+        androidx_widgets = "1.1.0"
+        espresso_version = "3.3.0"
+        testrunner_version = "1.3.0"
+        gson_version = "2.8.6"
+        okhttp_version = "4.9.0"
         joda_version = "2.9.9"
         retrofit_version = "2.6.0"
-        androidx_constraint = "1.1.3"
+        androidx_constraint = "2.0.4"
     }
 }
 

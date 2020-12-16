@@ -1,3 +1,16 @@
+/**
+ * Copyright © 2020 Johnson & Johnson
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
 package com.jnj.guppy.ui
 
 import android.app.Dialog
@@ -28,7 +41,7 @@ class GuppyDialogFragment : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = Dialog(context)
+        val dialog = Dialog(requireContext())
 
         activity?.layoutInflater?.inflate(R.layout.guppy_dialog, null)?.let { view ->
             dialog.setContentView(view)
@@ -39,8 +52,8 @@ class GuppyDialogFragment : DialogFragment() {
             onViewCreated(view, savedInstanceState)
 
             dialog.findViewById<TextView>(R.id.guppy_version).text = getString(
-                    R.string.guppy_version_string,
-                    BuildConfig.VERSION_NAME + "+" + BuildConfig.VERSION_CODE
+                R.string.guppy_version_string,
+                BuildConfig.VERSION_NAME + "+" + BuildConfig.VERSION_CODE
             )
 
             dialog.findViewById<ImageView>(R.id.clear_all_guppies).setOnClickListener {

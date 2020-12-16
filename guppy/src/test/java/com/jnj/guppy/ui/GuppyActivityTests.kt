@@ -14,6 +14,7 @@
 
 package com.jnj.guppy.ui
 
+import android.content.Context
 import android.hardware.SensorEvent
 import com.jnj.guppy.GuppyActivity
 import com.jnj.guppy.ShakeDetector
@@ -40,6 +41,8 @@ class GuppyActivityTests {
     @Mock
     private lateinit var mockDatabaseHelper: DatabaseHelper
 
+    @Mock
+    private lateinit var context: Context
 
     @Throws(Exception::class)
     fun mockSensorEvent(values: FloatArray): SensorEvent {
@@ -105,12 +108,12 @@ class GuppyActivityTests {
     @Test
     fun testGuppyData() {
         val data = GuppyData(
-                "requestType", "host",
-                "requestContentType", "requestContentLength",
-                "requestHeaders", "requestBody",
-                "responseContentType", "responseContentLength",
-                "responseResult", "responseHeaders",
-                "responseBody", "statusMessage", 200, 1L
+            "requestType", "host",
+            "requestContentType", "requestContentLength",
+            "requestHeaders", "requestBody",
+            "responseContentType", "responseContentLength",
+            "responseResult", "responseHeaders",
+            "responseBody", "statusMessage", 200, 1L
         )
         assertNotNull(data)
         assertEquals("host", data.host)
@@ -205,9 +208,8 @@ class GuppyActivityTests {
     @Test
     fun assertDialogFragmentBuilds() {
         val dialogFragment = GuppyDialogFragment().newInstance(
-                GuppyRecyclerAdapter(activity, activity.getGuppyData()), mockDatabaseHelper
+            GuppyRecyclerAdapter(activity, activity.getGuppyData()), mockDatabaseHelper
         )
-        dialogFragment.onCreateDialog(null)
         assertNotNull(dialogFragment)
     }
 }

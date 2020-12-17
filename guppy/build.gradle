@@ -79,11 +79,6 @@ task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.sourceFiles
 }
 
-task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
-    outputFormat = 'javadoc'
-    outputDirectory = "$buildDir/javadoc"
-}
-
 task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
     archiveClassifier.set("javadoc")
     from "$buildDir/javadoc"
@@ -92,4 +87,8 @@ task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
 artifacts {
     archives javadocJar
     archives sourcesJar
+}
+
+jacocoAndroidUnitTestReport {
+    destination "${buildDir}/reports/jacoco/jacocoTestReportCoverage/"
 }

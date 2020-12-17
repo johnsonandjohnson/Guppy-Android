@@ -8,6 +8,9 @@ buildscript {
         maven {
             url 'https://plugins.gradle.org/m2/'
         }
+        maven {
+            url 'https://dl.bintray.com/kotlin/dokka'
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.1'
@@ -20,8 +23,8 @@ buildscript {
 }
 
 plugins {
-    id 'com.gladed.androidgitversion' version '0.4.9'
-    id 'org.jetbrains.dokka' version '0.9.18'
+    id 'com.gladed.androidgitversion' version '0.4.14'
+    id 'org.jetbrains.dokka' version '1.4.20'
 }
 
 allprojects {

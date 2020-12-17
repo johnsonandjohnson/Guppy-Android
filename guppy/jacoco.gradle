@@ -48,7 +48,7 @@ task jacocoTestReportCoverage(type: JacocoReport, dependsOn: ['testDebugUnitTest
     getExecutionData().from = files("${buildDir}/jacoco/testDebugUnitTest.exec")
 
     doLast {
-        def report = file("${buildDir}/jacoco/jacoco.xml")
+        def report = file("${buildDir}/reports/jacoco/jacocoTestReportCoverage/jacoco.xml")
         logger.lifecycle("Checking coverage results: ${report}")
 
         def parser = new XmlParser()

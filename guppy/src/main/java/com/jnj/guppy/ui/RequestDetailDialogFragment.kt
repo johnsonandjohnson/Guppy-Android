@@ -30,7 +30,7 @@ class RequestDetailDialogFragment : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = Dialog(context)
+        val dialog = Dialog(requireContext())
         dialog.window?.requestFeature(Window.FEATURE_NO_TITLE)
 
         activity?.let {
@@ -38,7 +38,10 @@ class RequestDetailDialogFragment : DialogFragment() {
             dialog.setContentView(view)
 
             // needs to be called after you set the content view
-            dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+            dialog.window?.setLayout(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT
+            )
 
             guppyData?.let { data ->
                 dialog.findViewById<TextView>(R.id.request_url).text = data.host
@@ -48,7 +51,8 @@ class RequestDetailDialogFragment : DialogFragment() {
 
                 dialog.findViewById<TextView>(R.id.request_type).text = data.requestType
                 dialog.findViewById<TextView>(R.id.response_result).text = data.responseResult
-                dialog.findViewById<TextView>(R.id.response_body).text = formatJson(data.responseBody)
+                dialog.findViewById<TextView>(R.id.response_body).text =
+                    formatJson(data.responseBody)
             }
             onViewCreated(view, savedInstanceState)
         }

@@ -1,21 +1,21 @@
-apply plugin: 'jacoco'
+apply plugin: 'com.hiya.jacoco-android'
 
 jacoco {
-    toolVersion = "0.8.2"
+    toolVersion = "0.8.4"
 }
 
 ext {
     limits = [
-            'instruction': 71.0,
-            'branch'     : 53.0,
-            'line'       : 79.0,
-            'complexity' : 56.0,
-            'method'     : 80.0,
-            'class'      : 75.0
+            'instruction': 50,
+            'branch'     : 37,
+            'line'       : 45,
+            'complexity' : 41,
+            'method'     : 60,
+            'class'      : 47
     ]
 }
 
-task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
+task jacocoTestReportCoverage(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'jacocoTestReport']) {
 
     reports {
         //XML required by the below coverage checks
@@ -43,12 +43,12 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
             fileTree(dir: "${buildDir}/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/jnj/guppy", excludes: excludes)
     def mainSrc = "${project.projectDir}/src/main/java"
 
-    sourceDirectories = files([mainSrc])
-    classDirectories = files([debugTree])
-    executionData = files("${buildDir}/jacoco/testDebugUnitTest.exec")
+    getSourceDirectories().from = files([mainSrc])
+    getClassDirectories().from = files([debugTree])
+    getExecutionData().from = files("${buildDir}/jacoco/testDebugUnitTest.exec")
 
     doLast {
-        def report = file("${buildDir}/reports/jacoco/jacocoTestReport/jacocoTestReport.xml")
+        def report = file("${buildDir}/reports/jacoco/jacocoTestReportCoverage/jacoco.xml")
         logger.lifecycle("Checking coverage results: ${report}")
 
         def parser = new XmlParser()

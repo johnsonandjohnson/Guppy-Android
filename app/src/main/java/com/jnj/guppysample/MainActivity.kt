@@ -1,5 +1,5 @@
 /**
- * Copyright © 2019 Johnson & Johnson
+ * Copyright © 2020 Johnson & Johnson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,8 +17,8 @@ package com.jnj.guppysample
 import android.os.Bundle
 import android.util.Log
 import com.jnj.guppy.GuppyActivity
+import com.jnj.guppysample.databinding.ActivityMainBinding
 import com.jnj.guppysample.models.Post
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -29,6 +29,7 @@ class MainActivity : GuppyActivity() {
 
     private var client: APIClient? = null
     private val job: Job = Job()
+    private lateinit var binding: ActivityMainBinding
 
     private fun setClient() {
         client = APIClient(applicationContext)
@@ -36,22 +37,25 @@ class MainActivity : GuppyActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_main)
+        val view = binding.root
+        setContentView(view)
         setClient()
 
-        button_get_all.setOnClickListener {
+        binding.buttonGetAll.setOnClickListener {
             getAllPosts()
         }
 
-        button_get_one.setOnClickListener {
+        binding.buttonGetOne.setOnClickListener {
             getOnePost()
         }
 
-        button_create.setOnClickListener {
+        binding.buttonCreate.setOnClickListener {
             createRandomPost()
         }
 
-        tv_open_guppy.setOnClickListener {
+        binding.tvOpenGuppy.setOnClickListener {
             shakeListener?.onShake(0)
         }
     }

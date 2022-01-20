@@ -15,8 +15,6 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdk
         targetSdkVersion rootProject.ext.targetSdk
-        versionCode 2
-        versionName version
         buildConfigField "int", "databaseVersion", "2"
         buildConfigField 'int', 'VERSION_CODE', "${defaultConfig.versionCode}"
         buildConfigField 'String', 'VERSION_NAME', "\"${defaultConfig.versionName}\""
@@ -25,13 +23,11 @@ android {
 
     buildTypes {
         debug {
-            debuggable true
             testCoverageEnabled true
             resValue "string", "databaseName", "guppy_dev.db"
         }
         release {
             minifyEnabled false
-            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             resValue "string", "databaseName", "guppy_release.db"
 

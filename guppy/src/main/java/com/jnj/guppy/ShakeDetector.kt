@@ -18,7 +18,6 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
-import kotlin.math.sqrt
 
 
 class ShakeDetector : SensorEventListener {
@@ -44,7 +43,7 @@ class ShakeDetector : SensorEventListener {
         var y = 0F
         var z = 0F
 
-        event.values.forEachIndexed { index, value ->
+        event.values.forEachIndexed() { index, value ->
             when (index) {
                 xIndex -> x = value
                 yIndex -> y = value
@@ -58,7 +57,7 @@ class ShakeDetector : SensorEventListener {
         val gZ = z / SensorManager.GRAVITY_EARTH
 
         // gForce will be close to 1 when there is no movement.
-        val gForce = sqrt((gX * gX + gY * gY + gZ * gZ).toDouble())
+        val gForce = kotlin.math.sqrt((gX * gX + gY * gY + gZ * gZ).toDouble())
 
         if (gForce > SHAKE_THRESHOLD_GRAVITY) {
             val now = System.currentTimeMillis()

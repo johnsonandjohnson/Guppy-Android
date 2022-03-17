@@ -1,23 +1,21 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply from: './jacoco.gradle'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'org.jetbrains.dokka'
 
 group = 'com.github.johnsonandjohnson'
-version = '1.0.1'
+version = '1.1.0'
 
 android {
-    compileSdkVersion rootProject.ext.targetSdk
+    compileSdkVersion 32
     buildFeatures {
         viewBinding true
     }
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdk
-        targetSdkVersion rootProject.ext.targetSdk
+        minSdkVersion 23
+        targetSdkVersion 32
         buildConfigField "int", "databaseVersion", "2"
-        buildConfigField 'int', 'VERSION_CODE', "${defaultConfig.versionCode}"
-        buildConfigField 'String', 'VERSION_NAME', "\"${defaultConfig.versionName}\""
+        buildConfigField 'int', 'VERSION_CODE', "3"
+        buildConfigField 'String', 'VERSION_NAME', "\"1.1.0\""
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -34,8 +32,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     testOptions {
         unitTests {
@@ -51,12 +49,11 @@ dependencies {
     testImplementation 'org.mockito:mockito-inline:3.6.28'
     testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_version"
     testImplementation "com.squareup.okhttp3:okhttp-tls:$okhttp_version"
-    debugImplementation 'androidx.fragment:fragment-testing:1.2.5'
+    debugImplementation 'androidx.fragment:fragment-testing:1.4.0'
 
     androidTestImplementation "androidx.test:runner:$testrunner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.recyclerview:recyclerview:$androidx_widgets"
     implementation "androidx.appcompat:appcompat:$androidx_appcompat"
     implementation "androidx.constraintlayout:constraintlayout:$androidx_constraint"
@@ -75,13 +72,7 @@ task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.sourceFiles
 }
 
-task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
-    archiveClassifier.set("javadoc")
-    from "$buildDir/javadoc"
-}
-
 artifacts {
-    archives javadocJar
     archives sourcesJar
 }
 
